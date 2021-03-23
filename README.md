@@ -20,7 +20,7 @@ npm run start //Starts the production service.
 npm run start should be used on a different terminal window if using the development environment as it initializes a service needed to run the API
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+This is a project and not meant for contribution
 
 
 
