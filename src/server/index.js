@@ -26,9 +26,7 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-app.get('/textClassification', function (req, res) {
-    res.sendFile('dist/textClassification.html')
-})
+
 
 app.post('/makeSummary', async(req, res)=>{
 	var urlLink = req.body.urlLink;
@@ -46,6 +44,24 @@ app.post('/makeSummary', async(req, res)=>{
 	}
     
 })
+
+app.post('/sentiment', async(req, res)=>{
+	var urlLink = req.body.urlLink;
+	const mySentiment = await fetch ('https://api.meaningcloud.com/sentiment-2.1?key='+process.env.license_key+'&lang=en&url='+urlLink+'&model=general', {
+		method: "POST"
+	});
+	
+	try {
+		const sentiment = await mySentiment.json();
+		//res.json(summary)
+		console.log(sentiment)
+		res.send(sentiment)
+	} catch (error){
+		console.log("error", error)
+	}
+    
+})
+
 
 // designates what port the app will listen to for incoming requests
 app.listen(8081, function () {
