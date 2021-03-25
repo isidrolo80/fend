@@ -50,7 +50,7 @@
             <section>
 
             <section>
-                <strong>Summary:</strong> <br><br>
+                <strong>Result:</strong> <br><br>
                 <div id="results" style="color: white;"></div>
             </section>
         </main>
@@ -60,9 +60,7 @@
         </footer>
 
         <script>
-            // Check that service workers are supported
             if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
                     navigator.serviceWorker.register('/service-worker.js');
                 });
